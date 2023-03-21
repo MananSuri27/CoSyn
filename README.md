@@ -29,20 +29,29 @@ and correspondingly update the export statememt at `path-to-dgl/dgl/python/dgl/n
 ## 🔌 Dataset Processing
 ### 💬 Conversation Trees
 **Required Files:**
-- Node and edge features stored in `members` and `interactions` directory for each split `train`, `dev`, `test. For each conversation tree, corresponding to a given parent node id `tweet_id`, there will be a `members/tweet_id.csv` and `interactions/tweet_id.csv` having the node features and edge list respectively.
+- Node and edge features stored in `members` and `interactions` directory for each split `train`, `dev`, `test`. For each conversation tree, corresponding to a given parent node id `tweet_id`, there will be a `members/tweet_id.csv` and `interactions/tweet_id.csv` having the node features and edge list respectively.
 - A file, `username2id.csv` which maps usernames to an id between [0,n) where n is number of users.
 - Post embeddings for each post saved in the `embeds` directory.
 
-**To generate the conversation trees and load them as a pkl file, run the following code:**
+**To generate the conversation trees and load them as a pickle file, run the following code:**
 ```bash
 python3 utils/graphs.py
 ```
+
 ### 🌐 Social Graph
 
-Required Files:
-- 
+**Required Files:**
+- User relation matrices stored as `[test/train/val]/matrix/file`, where multiple files can exist in each split, and each file is an adjacency list representation of edges between given users.
+- Post embeddings of the last m(=100 in our paper) posts posted by the user in `embeds` directory, referenced by user ID.
+- A file, `username2id.csv` which maps usernames to an id between [0,n) where n is number of users.
+
+**To generate the conversation trees and load them as a pickle file, run the following code:**
+```bash
+python3 utils/socialgraph.py
+```
 
 ## Training
+
 
 ## Citation
 ```
