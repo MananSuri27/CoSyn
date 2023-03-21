@@ -81,6 +81,8 @@ The arguments for `main.py` are as follows:
                         Do not early stop before min-epochs
 ```
 
+## 🪛 Bias Invarient Encoder
+
 ## 📑 Citation
 ```
 @misc{ghosh2023cosyn,
