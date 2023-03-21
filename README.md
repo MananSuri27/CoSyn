@@ -50,35 +50,13 @@ python3 utils/graphs.py
 python3 utils/socialgraph.py
 ```
 
-## Training
+## 🏋️ Training
 To run the training script, run the following code:
 ```bash
 python3 main.py
 ```
 
-parser.add_argument('--device', type=str, default='auto',choices=['auto','cpu','cuda'])
-    parser.add_argument('--batch-size', type=int, default=32)
-    parser.add_argument('--x-size', type=int, default=768)
-    parser.add_argument('--g-size', type=int, default=768)
-
-    parser.add_argument('--u-size', type=int, default = 768)
-    parser.add_argument('--latent-size', type=int, default = 512)
-
-    parser.add_argument('--h-size', type=int, default=768)
-    parser.add_argument('--epochs', type=int, default=15)
-    parser.add_argument('--patience', type=int, default=60)
-    parser.add_argument('--min-epochs', type=int, default=50)
-    parser.add_argument('--lr', type=float, default=0.0013086417263456422)
-    parser.add_argument('--weight-decay', type=float, default=0.0003053617595661161)
-    parser.add_argument('--dropout', type=float, default=0.41789978091535973)
-    parser.add_argument('-beta', '--beta', default=0.999999, type=float)
-    parser.add_argument('-gamma', '--gamma', default=1.7269739598697345, type=float)
-    parser.add_argument('--data-dir', type=str, default='./data',help='directory for data')
-    parser.add_argument('--optimizer', type=str, default='Adam',choices=['Adam','RiemannianAdam'])
-    parser.add_argument('--save', action='store_true')
-    parser.add_argument('--save-dir', type=str, default='res',help='save directory')
-    parser.add_argument('--c', type=float, default=1.0)
-    
+The arguments for `main.py` are as follows:   
 ```
  Arguments:  
   --x-size DIM          Embedding Dimension of Post
@@ -103,7 +81,7 @@ parser.add_argument('--device', type=str, default='auto',choices=['auto','cpu','
                         Do not early stop before min-epochs
 ```
 
-## Citation
+## 📑 Citation
 ```
 @misc{ghosh2023cosyn,
       title={CoSyn: Detecting Implicit Hate Speech in Online Conversations Using a Context Synergized Hyperbolic Network}, 
