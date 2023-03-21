@@ -26,9 +26,26 @@ mv CoSyn/models/hgconv.py path-to-dgl/dgl/python/dgl/nn/pytorch/conv/
 and correspondingly update the export statememt at `path-to-dgl/dgl/python/dgl/nn/pytorch/conv/__init__.py /`.
 
 
-## Dataset Processing
+## 🔌 Dataset Processing
+### 💬 Conversation Trees
+Required Files:
+-
+
+### 🌐 Social Graph
+Required Files:
+- 
 
 ## Training
 
 ## Citation
+```
+@misc{ghosh2023cosyn,
+      title={CoSyn: Detecting Implicit Hate Speech in Online Conversations Using a Context Synergized Hyperbolic Network}, 
+      author={Sreyan Ghosh and Manan Suri and Purva Chiniya and Utkarsh Tyagi and Sonal Kumar and Dinesh Manocha},
+      year={2023},
+      eprint={2303.03387},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
 
