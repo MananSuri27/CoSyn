@@ -28,10 +28,17 @@ and correspondingly update the export statememt at `path-to-dgl/dgl/python/dgl/n
 
 ## 🔌 Dataset Processing
 ### 💬 Conversation Trees
-Required Files:
--
+**Required Files:**
+- Node and edge features stored in `members` and `interactions` directory for each split `train`, `dev`, `test. For each conversation tree, corresponding to a given parent node id `tweet_id`, there will be a `members/tweet_id.csv` and `interactions/tweet_id.csv` having the node features and edge list respectively.
+- A file, `username2id.csv` which maps usernames to an id between [0,n) where n is number of users.
+- Post embeddings for each post saved in the `embeds` directory.
 
+**To generate the conversation trees and load them as a pkl file, run the following code:**
+```bash
+python3 utils/graphs.py
+```
 ### 🌐 Social Graph
+
 Required Files:
 - 
 
