@@ -10,7 +10,7 @@ from dgl.nn import HGConv
 import math
 
 from models.base_model import BaseModel
-from models.bchst import CHST
+from models.chst import CHST
 
 from .hfan import HFAN
 
@@ -35,24 +35,13 @@ class COSYN(BaseModel):
 
     def forward(self, batch, h, c, mode='train',save=False):
 
-
- 
-
-
-
         feats = self.graph.graph.ndata['g']
-
 
         feats = self.HFAN(feats)
 
-
         res = self.gcn(self.graph.graph, feats)
 
-
-
         ids = batch.ids.to(self.device)
-
-
 
         user = []
 
@@ -68,12 +57,6 @@ class COSYN(BaseModel):
 
 
         user = torch.squeeze(torch.stack(user))
-
-
-
-
-
-
 
         iou = self.cell.pmath_geo.mobius_matvec(self.cell.W_iou,self.dropout(embeds))
         mso =  self.cell.pmath_geo.mobius_matvec(self.cell.W_mso,self.dropout(user))

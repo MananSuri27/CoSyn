@@ -12,8 +12,8 @@ class Node(DGLDataset):
         super().__init__(name='node')
 
     def process(self):
-        nodes_data = pd.read_csv('/speech/sreyan/aaai/members/'+self.type+"/"+self.id+".csv")
-        edges_data = pd.read_csv('/speech/sreyan/aaai/interactions/'+self.type+"/"+self.id+".csv")
+        nodes_data = pd.read_csv('./members/'+self.type+"/"+self.id+".csv")
+        edges_data = pd.read_csv('./interactions/'+self.type+"/"+self.id+".csv")
 
         nodes_data['x'] = nodes_data['x'].map(str)
 
@@ -29,28 +29,9 @@ class Node(DGLDataset):
         # g = torch.empty(size = (len(nodes_data),768))
 
         for ind in range(len(nodes_data)):
-            x[ind] = torch.load("/speech/sreyan/aaai/finetuned_tweet_embed_1/"+nodes_data['x'][ind]+".pt")
+            x[ind] = torch.load("embeds/"+nodes_data['x'][ind]+".pt")
 
 
-        # found = 0
-        # notfound = 0
-        # for ind in range(len(nodes_data)):
-        #     try:
-        #         folder = "Test/" if self.type =="test" else "Train/"
-        #         g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['u_name'][ind]+".pt")), dim = 0), dim = 0)
-        #         found = found+1
-        #     except:
-        #         try:
-        #             folder = "Test/" if self.type =="test" else "Train/"
-        #             g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['u_name'][ind]+"(1).pt")), dim = 0), dim = 0)
-        #             found = found+1
-        #         except:
-        #             print("Username not found",nodes_data['u_name'][ind] )
-        #             g[ind] = torch.normal(mean=torch.zeros(768), std=torch.ones(768))
-        #             notfound = notfound+1
-
-        # print("found",found)
-        # print("notfound",notfound)
 
         userID = pd.read_csv('username2id.csv')
 
@@ -71,9 +52,6 @@ class Node(DGLDataset):
 
 
 
-
-
-        # edges un-reversed
         edges_dst = torch.from_numpy(edges_data['dest'].to_numpy())
         edges_src = torch.from_numpy(edges_data['src'].to_numpy())
 
@@ -90,8 +68,6 @@ class Node(DGLDataset):
         self.graph.ndata['id'] = id
         self.graph.ndata['tweet_id'] = tweet_id.to(dtype=torch.int64)
         
-        # self.graph.edata['weight'] = edge_features
-
 
 
     def __getitem__(self, i):

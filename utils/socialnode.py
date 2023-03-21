@@ -9,7 +9,7 @@ import pickle
 
 
 def generateEdges(type, number, df):
-    path = "/speech/sreyan/aaai/"+type+"_matrix/file"+str(number)
+    path = "./"+type+"_matrix/file"+str(number)
 
     try:
 
@@ -88,21 +88,21 @@ class Node(DGLDataset):
             try:
                 try:
                     folder = "Test/"
-                    g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['user_name'][ind]+".pt")), dim = 0), dim = 0)
+                    g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../embeddings/"+folder+nodes_data['user_name'][ind]+".pt")), dim = 0), dim = 0)
                     found = found+1
                 except:
                     folder = "Train/"
-                    g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['user_name'][ind]+".pt")), dim = 0), dim = 0)
+                    g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../embeddings/"+folder+nodes_data['user_name'][ind]+".pt")), dim = 0), dim = 0)
                     found = found+1
             except:
                 try:
                     try:
                         folder = "Test/" 
-                        g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['user_name'][ind]+"(1).pt")), dim = 0), dim = 0)
+                        g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../embeddings/"+folder+nodes_data['user_name'][ind]+"(1).pt")), dim = 0), dim = 0)
                         found = found+1
                     except:
                         folder = "Train/" 
-                        g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../muril/"+folder+nodes_data['user_name'][ind]+"(1).pt")), dim = 0), dim = 0)
+                        g[ind] = torch.mean(torch.mean(torch.stack(torch.load("../embeddings/"+folder+nodes_data['user_name'][ind]+"(1).pt")), dim = 0), dim = 0)
                         found = found+1
 
                 except:

@@ -25,7 +25,7 @@ class TwitterProcessor():
 
         self.attrs = ['x', 'y', 'del_t', 'train_mask', 'val_mask', 'test_mask', 'ids','tweet_id']
 
-        filepath = os.path.join(data_dir,"")
+        filepath = os.path.join(data_dir,"./data/conversation_trees.pkl")
 
         with open(filepath,"rb") as f:
             dataset = pickle.load(f)

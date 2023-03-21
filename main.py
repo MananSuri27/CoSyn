@@ -105,7 +105,6 @@ def train_loop(model,data_loader,optimizer,device,h_size,beta,gamma):
     train_metrics["loss"] = train_loss.item()
 
     print("Train (Loss {:.4f} | M.F1 {:.4f} | Rec {:.4f} |".format(train_metrics["loss"], train_metrics["f1"], train_metrics["recall"]))
-    # print("Train Loss {:.4f} | ".format(train_loss.item()),end='')
 
 
 def val_loop(model,data_loader,device,h_size,beta,gamma):
@@ -293,7 +292,7 @@ def main(args, params=None):
 
     print("Device:",device)
 
-    with open('', 'rb') as f:
+    with open('./data/social_network.pkl', 'rb') as f:
         socialgraph = pickle.load(f)
 
     if not args:
@@ -357,7 +356,6 @@ def main(args, params=None):
 
     with open(fname,'wb') as f:
         pickle.dump(save_dict,f)
-# Namespace(device='auto', batch_size=32, x_size=768, u_size=768, latent_size=512, g_size=512, h_size=768, epochs=10, patience=60, min_epochs=50, lr=0.0013086417263456422, weight_decay=0.0003053617595661161, dropout=0.41789978091535973, beta=0.999999, gamma=1.9953299929350752, data_dir='./data', optimizer='Adam', save=False, save_dir='res', c=1.0)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
