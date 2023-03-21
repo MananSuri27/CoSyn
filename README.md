@@ -51,7 +51,57 @@ python3 utils/socialgraph.py
 ```
 
 ## Training
+To run the training script, run the following code:
+```bash
+python3 main.py
+```
 
+parser.add_argument('--device', type=str, default='auto',choices=['auto','cpu','cuda'])
+    parser.add_argument('--batch-size', type=int, default=32)
+    parser.add_argument('--x-size', type=int, default=768)
+    parser.add_argument('--g-size', type=int, default=768)
+
+    parser.add_argument('--u-size', type=int, default = 768)
+    parser.add_argument('--latent-size', type=int, default = 512)
+
+    parser.add_argument('--h-size', type=int, default=768)
+    parser.add_argument('--epochs', type=int, default=15)
+    parser.add_argument('--patience', type=int, default=60)
+    parser.add_argument('--min-epochs', type=int, default=50)
+    parser.add_argument('--lr', type=float, default=0.0013086417263456422)
+    parser.add_argument('--weight-decay', type=float, default=0.0003053617595661161)
+    parser.add_argument('--dropout', type=float, default=0.41789978091535973)
+    parser.add_argument('-beta', '--beta', default=0.999999, type=float)
+    parser.add_argument('-gamma', '--gamma', default=1.7269739598697345, type=float)
+    parser.add_argument('--data-dir', type=str, default='./data',help='directory for data')
+    parser.add_argument('--optimizer', type=str, default='Adam',choices=['Adam','RiemannianAdam'])
+    parser.add_argument('--save', action='store_true')
+    parser.add_argument('--save-dir', type=str, default='res',help='save directory')
+    parser.add_argument('--c', type=float, default=1.0)
+    
+```
+ Arguments:  
+  --x-size DIM          Embedding Dimension of Post
+  --u-size DIM          Embedding Dimension of User 
+  --g-size DIM          Output Dimension of HGCN
+  --h-size DIM          Hidden Dimension of CHST
+  --c C                 Curvature of Hyperbolic Space
+  --batch-size  BS      Batch size
+  --data-dir DIR        Directory for data
+  --device DEVICE       Device
+  --lr LR               Learning rate
+  --dropout DROPOUT     Dropout probability
+  --epochs EPOCHS       Maximum number of epochs to train for
+  --weight-decay WEIGHT_DECAY
+                        L2 regularization strength
+  --optimizer OPTIMIZER
+                        Which optimizer to use
+  --patience PATIENCE   Patience for early stopping
+  --save                Save computed results
+  --save-dir SAVE_DIR   Path to save results
+  --min-epochs MIN_EPOCHS
+                        Do not early stop before min-epochs
+```
 
 ## Citation
 ```
