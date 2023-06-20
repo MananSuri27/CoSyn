@@ -81,17 +81,3 @@ The arguments for `main.py` are as follows:
                         Do not early stop before min-epochs
 ```
 
-## 🪛 Bias Invarient Encoder
-
-## 📑 Citation
-```
-@misc{ghosh2023cosyn,
-      title={CoSyn: Detecting Implicit Hate Speech in Online Conversations Using a Context Synergized Hyperbolic Network}, 
-      author={Sreyan Ghosh and Manan Suri and Purva Chiniya and Utkarsh Tyagi and Sonal Kumar and Dinesh Manocha},
-      year={2023},
-      eprint={2303.03387},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-```
-
